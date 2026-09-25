@@ -9,15 +9,16 @@ import toast from 'react-hot-toast'
 const ProjectPage = () => {
     const [GetProject, setGetProject] = useState([])
     const [loading, setLoading] = useState(false);
-    const { isAdmin } = useAuth()
+    const { isAdmin , port } = useAuth()
     console.log(isAdmin);
 
+console.log(port , 'l');
 
     useEffect(() => {
         const ProjectData = async () => {
             setLoading(true)
             try {
-                const res = await fetch(`http://localhost:3000/project/allproject`)
+                const res = await fetch(`${port}/project/allproject`)
                 const result = await res.json()
                 setGetProject(result.data)
 
@@ -38,7 +39,7 @@ const ProjectPage = () => {
             return;
         }
 
-        axios.delete(`http://localhost:3000/project/${id}`)
+        axios.delete(`${port}/project/${id}`)
         .then((r)=>{
             console.log(r);
              toast.success(r.data.message);

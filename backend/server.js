@@ -13,6 +13,7 @@ const DB = require('./DB/db.js')
 
 const port = process.env.FRONTEND_KEY
 
+
 app.use(cors({
     origin: port ,
     credentials: true

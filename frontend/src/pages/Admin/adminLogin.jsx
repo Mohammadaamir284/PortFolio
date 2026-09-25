@@ -11,7 +11,7 @@ import Loading from '../../Component/Loading';
 
 const AdminLogin = () => {
     const navigate = useNavigate()
-    const { setIsAdmin, } = useAuth();
+    const { setIsAdmin, port} = useAuth();
     const [loading, setLoading] = useState(false);
 
     const {
@@ -31,7 +31,7 @@ const AdminLogin = () => {
             "Content-Type": "application/json"
         };
 
-        axios.post(`http://localhost:3000/admin/login`, i, config)
+        axios.post(`${port}/admin/login`, i, config)
             .then((r) => {
                 console.log(r);
                 toast.success(r.data.message);

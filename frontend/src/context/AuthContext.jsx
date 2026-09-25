@@ -8,10 +8,12 @@ export const AuthProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const port = import.meta.env.VITE_BACKEND
+
   useEffect(() => {
     const checkAdmin = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/admin/me", {
+        const response = await axios.get(`${port}/admin/me`, {
            withCredentials: true,
         });
 
@@ -32,6 +34,7 @@ export const AuthProvider = ({ children }) => {
         isAdmin,
         setIsAdmin,
         loading,
+        port
       }}
     >
       {children}

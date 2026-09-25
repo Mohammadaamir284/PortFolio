@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Loading from "../../Component/Loading";
+import { useAuth } from "../../context/AuthContext";
 
 const ProjectDetails = () => {
     const { id } = useParams();
+
+    const { port } = useAuth()
 
     const [project, setProject] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -13,7 +16,7 @@ const ProjectDetails = () => {
         const getProject = async () => {
             try {
                 const res = await axios.get(
-                    `http://localhost:3000/project/${id}`
+                    `${port}/project/${id}`
                 );
 
                 setProject(res.data.data);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useAuth } from "../../context/AuthContext";
 
 import AddInput from "../../Component/AddInput";
 import AddImages from "../../Component/AddImages";
@@ -16,6 +17,8 @@ const AddProjectPage = () => {
         mediaType: "",
     });
     const [loading, setLoading] = useState(false);
+
+    const { port } = useAuth
 
     const {
         register,
@@ -44,7 +47,7 @@ const AddProjectPage = () => {
             "Content-Type": "application/json"
         };
 
-        axios.post(`http://localhost:3000/project`, projectData, config)
+        axios.post(`${port}/project`, projectData, config)
             .then((r) => {
                 console.log(r);
                 toast.success(r.data.message)

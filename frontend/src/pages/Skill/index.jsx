@@ -6,7 +6,7 @@ import AddSkills from './AddSkills'
 import Loading from '../../Component/Loading'
 
 const SkillPage = () => {
-    const { isAdmin } = useAuth();
+    const { isAdmin, port } = useAuth();
     const [Add, setAdd] = useState(false)
     const [AllSkill, setAllSkill] = useState([])
     const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ const SkillPage = () => {
             config.headers = {
                 "Content-Type": "application/json"
             };
-            axios.get(`http://localhost:3000/skill/allskill`, config)
+            axios.get(`${port}/skill/allskill`, config)
                 .then((r) => {
                     setAllSkill(r.data.data)
                     
@@ -46,7 +46,7 @@ const SkillPage = () => {
         config.headers = {
             "Content-Type": "application/json"
         };
-        axios.delete(`http://localhost:3000/skill/delete/${id}`, config)
+        axios.delete(`${port}/skill/delete/${id}`, config)
             .then((r) => {
                 console.log(r);
                 setAllSkill(prev =>

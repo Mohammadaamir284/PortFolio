@@ -4,6 +4,7 @@ import Input from '../../Component/Input';
 import AddImages from '../../Component/AddImages';
 import axios from 'axios';
 import Loading from '../../Component/Loading';
+import { useAuth } from '../../context/AuthContext';
 
 const AddSkills = ({ setAdd }) => {
     const [resetKey, setResetKey] = useState(0);
@@ -12,6 +13,8 @@ const AddSkills = ({ setAdd }) => {
         mediaType: ""
     });
     const [loading, setLoading] = useState(false);
+
+    const { port } = useAuth()
 
     const {
         register,
@@ -38,7 +41,7 @@ const AddSkills = ({ setAdd }) => {
             "Content-Type": "application/json"
         };
 
-        axios.post(`http://localhost:3000/skill`, appendSkill, config)
+        axios.post(`${port}/skill`, appendSkill, config)
             .then((r) => {
                 console.log(r);
                 reset()
