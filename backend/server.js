@@ -3,14 +3,18 @@ const cors = require('cors')
 const app = express()
 const cookieParesr = require('cookie-parser')
 const debug = require('debug')("development:main")
+const dotenv = require('dotenv')
+dotenv.config()
 
 const productDB = require('./routes/productDB.js')
 const Admin = require('./routes/admin.js')
 const Skills = require('./routes/skill.js')
 const DB = require('./DB/db.js')
 
+const port = process.env.FRONTEND_KEY
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: port ,
     credentials: true
 }));
 
