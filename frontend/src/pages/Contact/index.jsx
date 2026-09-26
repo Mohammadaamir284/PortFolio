@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../../Component/Navbar'
+import { Link } from 'react-router-dom'
 
 const ContactPage = () => {
   return (
@@ -21,12 +22,11 @@ const ContactPage = () => {
 
             <div className="flex items-center gap-4">
               <p className="text-gray-400">Email :</p>
-              <a
-                href="mailto:yourname@gmail.com"
+              <Link
                 className="text-white hover:text-cyan-400"
               >
-                yourname@gmail.com
-              </a>
+               aamirmohammad2285@gmail.com
+              </Link>
             </div>
 
             <div className="flex items-center gap-4">
@@ -34,17 +34,19 @@ const ContactPage = () => {
               <a
                 className="text-white hover:text-cyan-400"
               >
-                 +91 XXXXX XXXXX
+                 +91 9990651131
               </a>
             </div>
 
             <div className="flex items-center gap-4">
               <p className="text-gray-400">GITHUB :</p>
-              <a
+              <Link
+              to={'https://github.com/Mohammadaamir284'}
+               target='_blank'
                 className="text-white hover:text-cyan-400"
               >
                  GitHub
-              </a>
+              </Link>
             </div>
             
           </div>
