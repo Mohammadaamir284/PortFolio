@@ -60,8 +60,8 @@ router.post('/login', async function (req, res) {
             )
             res.cookie('token', myToken, {
                 httpOnly: true,
-                secure: false,
-                sameSite: "lax",
+                secure: true,
+                sameSite: "none",
                 path: "/",
                 maxAge: 60 * 60 * 1000
             })
@@ -79,17 +79,18 @@ router.post('/login', async function (req, res) {
 })
 
 router.get("/me", authMiddleware, (req, res) => {
-  return res.status(200).json({
-    message: "Admin authenticated",
-    admin: req.user,
-  });
+    return res.status(200).json({
+        message: "Admin authenticated",
+        admin: req.user,
+    });
 });
 
 router.post("/logout", (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
-        sameSite: "lax",
-        secure: false
+        secure: true,
+        sameSite: "none",
+        path: "/"
     });
 
     res.json({
