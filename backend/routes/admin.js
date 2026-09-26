@@ -85,4 +85,17 @@ router.get("/me", authMiddleware, (req, res) => {
   });
 });
 
+router.post("/logout", (req, res) => {
+    res.clearCookie("token", {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: false
+    });
+
+    res.json({
+        success: true,
+        message: "Logout successful"
+    });
+});
+
 module.exports = router

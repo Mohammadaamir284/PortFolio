@@ -18,7 +18,7 @@ const AddProjectPage = () => {
     });
     const [loading, setLoading] = useState(false);
 
-    const { port } = useAuth
+    const { port } = useAuth()
 
     const {
         register,
