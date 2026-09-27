@@ -67,7 +67,7 @@ const WelcomePage = () => {
                             />
                             <div className='flex gap-6 items-center pt-7 text-white '>
                                 <Link to={'https://github.com/Mohammadaamir284'} target='_blank' className='border-2 rounded-full px-2 py-1 bg-violet-800/20 border-violet-800 text-neutral-300 font-semibold'> GITHUB Profile </Link>
-                                <Link to={'https://drive.google.com/file/d/1ia6-Tg3Tqz7TXs3KBnaoOXM1KkTFJP_H/view'}
+                                <Link to={'https://drive.google.com/file/d/1pzwCjudcOYvkb5z2fjZwc9bnG1Dx3nkw/view'}
                                 target='_blank'
                                 className='border-2 rounded-full px-2 py-1 bg-purple-800/20 border-purple-800 text-neutral-300 font-semibold'> View Resume </Link>
                             </div>
