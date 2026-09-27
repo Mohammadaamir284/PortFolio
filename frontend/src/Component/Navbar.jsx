@@ -142,13 +142,12 @@ const Navbar = () => {
                         </Link>
                     )}
 
-                    <Link
+                    {isAdmin && <div
                         onClick={handleLogout}
                         className="px-3 py-2 rounded-lg hover:bg-violet-600/30"
-                        to="/about"
                     >
                         LogOut
-                    </Link>
+                    </div>}
 
                 </div>
             )}
